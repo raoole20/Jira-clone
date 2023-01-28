@@ -8,7 +8,8 @@
 *.sqlite3
 *.db-shm
 *.db-wal
-
+mongo/
+Postgres/
 ### NextJS ###
 # dependencies
 /node_modules
