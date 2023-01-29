@@ -9,7 +9,6 @@ export const MainLayout = ({ children, onChangeMode }: Props) => {
 
       <BoxContainer>
         { children }
-
       </BoxContainer>
     </PageContainer>
   )
@@ -23,12 +22,12 @@ interface Props {
 const PageContainer = styled(Box)(({theme}) => ({
   height: '100vh',
   width: '100%',
-  display: 'flex'
+  display: 'flex',
+  overflow: 'hidden'
 }))
 
 const BoxContainer = styled(Box)(({theme}) => ({
-  height: '100hv',
-  padding: '100px 40px 0',
+  height: '100vh',
+  padding: '100px 40px 40px',
   width: '100%'
-
 }))

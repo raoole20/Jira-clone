@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { AppBar, Toolbar,  Stack} from '@mui/material'
-import { Searchbar } from './Searchbar'
+import { Searchbar } from '../common/Searchbar'
 import { LinkCustom, SwitchMode } from '../common'
 
 export const Navbar = ({ onChangeMode }: any) => {
