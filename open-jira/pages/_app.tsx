@@ -4,8 +4,8 @@ import type { AppProps } from 'next/app'
 import { ThemeProvider } from '@emotion/react'
 import { CssBaseline } from '@mui/material'
 import { darkTheme, lightTheme } from '../themes'
-import { Provider, useSelector } from 'react-redux'
-import { RootState, store } from 'app/store'
+import { Provider } from 'react-redux'
+import { store } from 'app/store'
 import { useState } from 'react'
 
 
@@ -19,11 +19,12 @@ export default function App ({ Component, pageProps }: NewProps) {
   const handleChangeMode = () => { 
     setMode(mode === 'dark' ? 'light' : 'dark')
   }
+
   return (
     <Provider store={store}>
       <ThemeProvider theme={ mode === 'dark' ? darkTheme : lightTheme }>
         <CssBaseline />
-        <Component {...pageProps} onChageMode={handleChangeMode} />
+        <Component {...pageProps}  onChangeMode={handleChangeMode} />
       </ThemeProvider>
     </Provider>
   )

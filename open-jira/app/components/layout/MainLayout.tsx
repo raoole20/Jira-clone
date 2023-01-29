@@ -1,10 +1,10 @@
 import { Box, styled, Typography } from "@mui/material"
 import { MiniDrawer, Navbar } from "../UI"
 
-export const MainLayout = ({ children }: Props) => {
+export const MainLayout = ({ children, onChangeMode }: Props) => {
   return (
     <PageContainer>
-      <Navbar />
+      <Navbar onChangeMode={onChangeMode} />
       <MiniDrawer />
 
       <BoxContainer>
@@ -17,7 +17,7 @@ export const MainLayout = ({ children }: Props) => {
 
 interface Props {
   children: JSX.Element
-  onChageMode():void
+  onChangeMode():void
 }
 
 const PageContainer = styled(Box)(({theme}) => ({
