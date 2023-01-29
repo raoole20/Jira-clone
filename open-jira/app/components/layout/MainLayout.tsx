@@ -16,7 +16,7 @@ export const MainLayout = ({ children, onChangeMode }: Props) => {
 }
 
 interface Props {
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
   onChangeMode():void
 }
 
@@ -28,6 +28,7 @@ const PageContainer = styled(Box)(({theme}) => ({
 
 const BoxContainer = styled(Box)(({theme}) => ({
   height: '100hv',
-  paddingTop: '100px',
+  padding: '100px 40px 0',
   width: '100%'
+
 }))
