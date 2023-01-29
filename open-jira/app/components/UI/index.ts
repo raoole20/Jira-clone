@@ -1,1 +1,2 @@
-export * from './Example'
+export * from './navbar/Navbar';
+export * from './sidebar';

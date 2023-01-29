@@ -1,9 +1,12 @@
-import { Typography } from '@mui/material'
+import { Button, Typography } from '@mui/material'
+import { MainLayout } from 'app/components/layout'
 
-export default function Home (): JSX.Element {
+export default function Home ({ onChageMode }: any): JSX.Element {
+
   return (
-    <Typography>
-      This is a demo
-    </Typography>
+    <MainLayout onChageMode={onChageMode}>
+      <Button onClick={onChageMode} variant="contained" color="success">Toggle Mode</Button>
+    </MainLayout>
   )
 }
+
