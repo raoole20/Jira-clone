@@ -1,5 +1,8 @@
 import { Typography, Box, Paper, styled } from "@mui/material";
 import { Status, TaskInterface } from "app/interfaces";
+import { RootState, taskActions } from "app/store";
+import React, { CSSProperties, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { CardDragable } from "./CardDragable";
 
 const DUMMY_DATA: TaskInterface[] = [
@@ -40,40 +43,52 @@ const DUMMY_DATA: TaskInterface[] = [
   },
 ];
 
-export const ListCard = ({ title, status }: Props) => {
-  const dropHandle = () => {
-    console.log("drop en la columna ", status);
-  };
-  return (
-    <CustomPaper
-      onDrop={dropHandle}
-      onDragOver={() => console.log(status)}
-      onDropCapture={() => {
-        console.log("end");
-      }}
-    >
-      <Typography
-        variant="body1"
-        color="primary.light"
-        fontWeight={"bold"}
-        textTransform="uppercase"
-      >
-        {title}
-      </Typography>
+const allowDrop = ( event: any) => {
+  event.preventDefault()
+}
 
-      <BoxScroll>
-        {DUMMY_DATA.map((task) => {
-          if (task.status === status)
-            return (
-              <CardDragable
-                title={task.title}
-                task={task.taskGrup}
-                integrant={task.encargado}
-              />
-            );
-        })}
-      </BoxScroll>
-    </CustomPaper>
+export const ListCard = ({ title, status }: Props) => {
+  const { tasks, isDrag } = useSelector((state: RootState) => state.task)
+  const dispatch = useDispatch()
+  
+  const onDrop = (event: any) => { 
+    const id = event.dataTransfer.getData('text')
+    dispatch(taskActions.taskUpdate({
+      id,
+      status
+    }))
+   dispatch(taskActions.isDragEnd())
+  }
+
+  return (
+    <div 
+      style={isDrag ?  Draggin : { height: '100%' }}
+      onDrop={onDrop}
+      onDragOver={allowDrop}>
+      <CustomPaper>
+        <Typography
+          variant="body1"
+          color="primary.light"
+          fontWeight={"bold"}
+          textTransform="uppercase"
+        >
+          {title}
+        </Typography>
+
+        <BoxScroll>
+          {tasks.map((task) => {
+            if (task.status === status)
+              return (
+                <CardDragable
+                  title={task.title}
+                  task={task}
+                  integrant={task.encargado}
+                />
+              );
+          })}
+        </BoxScroll>
+      </CustomPaper>
+    </div>
   );
 };
 
@@ -104,3 +119,10 @@ const BoxScroll = styled(Box)(({ theme }) => ({
     borderRadius: "4px",
   },
 }));
+
+const Draggin: CSSProperties = {
+  backgroundColor:" rgba(0,0,0,0.4)",
+  border: "1px dashed #fff",
+  height: '100%',
+  borderRadius: '5px'
+}

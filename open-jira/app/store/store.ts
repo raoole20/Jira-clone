@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { aplicationReducer } from './appSlice'
+import { taskReducer } from './taskSlice'
 
 export const store = configureStore({
   reducer: {
-    app:  aplicationReducer
+    app:  aplicationReducer,
+    task: taskReducer,
   }
 })
 

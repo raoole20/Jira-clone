@@ -4,14 +4,14 @@ import { ListCard } from './ListCard';
 
 export const DragContainer = () => {
     return (
-        <Box 
+        <Box
             mt={5}
-            sx={{ height: 'calc(100vh - 280px)'}}>
-            <Grid 
-                container 
-                spacing={3} 
-                height= 'calc(100vh - 280px)'>
-    
+            sx={{ height: 'calc(100vh - 280px)' }}>
+            <Grid
+                container
+                spacing={3}
+                height='calc(100vh - 280px)'>
+
                 <Grid item xs={4}>
                     <ListCard status='pending' title={'Pending'} />
                 </Grid>
@@ -21,7 +21,7 @@ export const DragContainer = () => {
                 <Grid item xs={4}>
                     <ListCard status='finish' title={'Finish'} />
                 </Grid>
-    
+
             </Grid>
         </Box>
     )

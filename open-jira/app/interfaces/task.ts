@@ -6,4 +6,9 @@ export interface TaskInterface {
     status: Status
 }
 
+export interface InitTaskSlice {
+    isDrag: boolean
+    tasks: TaskInterface[]
+}
+
 export type Status = 'pending' | 'process' | 'finish'
