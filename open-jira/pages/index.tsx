@@ -6,8 +6,16 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 export default function Home({ onChangeMode }: any): JSX.Element {
   return (
     <MainLayout onChangeMode={onChangeMode}>
-      <Typography variant="body1">Proyecto 01 / this is a proyect</Typography>
-      <Typography variant="h4">Tablero Sprint 2</Typography>
+      <Stack direction='row' justifyContent={'space-between'} alignItems="center">
+        <Box>
+          <Typography variant="body1">Proyecto 01 / this is a proyect</Typography>
+          <Typography variant="h4">Tablero Sprint 2</Typography>
+        </Box>
+
+        <Box>
+          <Button variant="contained" color='secondary'>Create new Task</Button>
+        </Box>
+      </Stack>
 
       <Stack direction={'row'} mt='20px' spacing={2}>
         <Searchbar />

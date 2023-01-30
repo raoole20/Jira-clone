@@ -73,7 +73,7 @@ const ButtonFloating = styled(Box)(({ theme }) => ({
   zIndex: '15',
   right: '-15px',
   top: '117px',
-  backgroundColor: theme.palette.primary.dark,
+  backgroundColor: theme.palette.secondary.dark,
   borderRadius: '50%'
 }))
 

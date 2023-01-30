@@ -22,9 +22,9 @@ export const Searchbar = () => {
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    backgroundColor: theme.palette.mode === 'dark' ?  alpha(theme.palette.common.white, 0.15) : theme.palette.secondary.dark,
     '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25),
+        backgroundColor: theme.palette.mode === 'dark' ? alpha(theme.palette.common.white, 0.25) : theme.palette.secondary.dark,
     },
     marginLeft: 0,
     margin: '0',

@@ -4,15 +4,16 @@ export const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#038c7f',
-      light: '#A9d9d0',
-      dark: '#027373'
+      main: '#1E3D58',
     },
     secondary: {
-      main: '#f2e7dc'
+      main: '#E8EEF1'
     },
     contrast: {
-      main: '#0d0d0d'
+      main: '#01161F'
+    },
+    background: {
+      paper: '#E8EEF1',
     }
   },
   custom: {
@@ -44,9 +45,5 @@ declare module '@mui/material/styles' {
 
   interface SimplePaletteColorOptions {
     darker?: string;
-  }
-
-  interface ThemeOptions {
-    custom?: Palette['primary']
   }
 }
