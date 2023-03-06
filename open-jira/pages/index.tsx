@@ -1,9 +1,12 @@
-import { Avatar, AvatarGroup, Box, Button, ButtonGroup, Stack, Typography } from "@mui/material";
+import { Avatar, AvatarGroup, Box, Button, Stack, Typography } from "@mui/material";
 import { MainLayout } from "app/components/layout";
-import { DragContainer, Searchbar } from "app/components/UI";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { DragContainer, Searchbar, TaskModal } from "app/components/UI";
+import { openModal } from "app/store";
+import { useDispatch } from "react-redux";
 
 export default function Home({ onChangeMode }: any): JSX.Element {
+  const dispatch = useDispatch()
+
   return (
     <MainLayout onChangeMode={onChangeMode}>
       <Stack direction='row' justifyContent={'space-between'} alignItems="center">
@@ -13,7 +16,12 @@ export default function Home({ onChangeMode }: any): JSX.Element {
         </Box>
 
         <Box>
-          <Button variant="contained" color='secondary'>Create new Task</Button>
+          <Button 
+            onClick={()=> dispatch(openModal())}
+            variant="contained" 
+            color='secondary'>
+              Create new Task
+          </Button>
         </Box>
       </Stack>
 
@@ -28,8 +36,8 @@ export default function Home({ onChangeMode }: any): JSX.Element {
         </AvatarGroup>
       </Stack>
 
-
       <DragContainer />
+      <TaskModal />
     </MainLayout>
   );
 }

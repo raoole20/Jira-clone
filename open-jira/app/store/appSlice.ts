@@ -1,7 +1,8 @@
 import { createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
-  mode: 'dark'
+  mode: 'dark',
+  openModal: false
 }
 
 const aplicationSlice = createSlice({
@@ -10,9 +11,15 @@ const aplicationSlice = createSlice({
    reducers: {
     changeMode (state) {
       state.mode = state.mode === 'dark' ? 'light' : 'dark'
+    },
+    openModal (state) {
+      state.openModal = true
+    }, 
+    closeModal (state) { 
+      state.openModal = false
     }
    }
  })
 
-export const { changeMode } = aplicationSlice.actions
+export const { changeMode, openModal, closeModal } = aplicationSlice.actions
 export const aplicationReducer = aplicationSlice.reducer

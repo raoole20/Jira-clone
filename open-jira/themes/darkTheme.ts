@@ -1,9 +1,5 @@
 import { createTheme } from "@mui/material";
-// $raisin-black: #2E252Aff;
-// $champagne: #EEDEC2ff;
-// $rust: #A04E26ff;
-// $black-coffee: #332E30ff;
-// $sinopia: #D44500ff;
+
 export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
